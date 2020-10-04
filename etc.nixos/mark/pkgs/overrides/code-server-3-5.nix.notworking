@@ -1,0 +1,14 @@
+{ stdenv, fetchFromGitHub, code-server, ... }:
+
+code-server.overrideAttrs (old: rec {
+  version = "v3.5.0";
+  commit = "b509063e143bbf74b74ec295260c4fd5f6332f71";
+  
+  src = fetchFromGitHub {
+    owner = "cdr";
+    repo = "code-server";
+    rev = version;
+    sha256 = "13zj77m0y8cchkp9l3lw02r66s0iybmf9j2va9mm17k1886qjywq";
+    fetchSubmodules = true;
+  };
+})
